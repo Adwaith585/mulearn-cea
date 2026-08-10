@@ -124,8 +124,8 @@ export default function AboutPage() {
 
             {/* Faculty Enabler Callout */}
             <section className="bg-gradient-to-br from-surface to-background border border-primary/20 rounded-3xl p-8 max-w-3xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center gap-8 shadow-[0_0_40px_rgba(108,92,231,0.05)]">
-                <div className="w-32 h-32 rounded-full flex-shrink-0 overflow-hidden bg-surface/50 border-4 border-primary/20 flex items-center justify-center">
-                    <span className="text-text-muted text-sm font-medium">Photo</span>
+                <div className="w-32 h-32 rounded-full flex-shrink-0 overflow-hidden border-4 border-primary/20 relative shadow-xl">
+                    <img src="/faculty.jpg" alt="Prof. Reshma M" className="w-full h-full object-cover" />
                 </div>
                 <div>
                     <h3 className="text-xs uppercase tracking-widest text-primary font-bold mb-2">Faculty Enabler</h3>
