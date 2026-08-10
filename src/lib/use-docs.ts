@@ -16,7 +16,6 @@ const INITIAL_DOCS: DocPost[] = [
         id: '1',
         title: 'Launch of µLearn CEA Chapter',
         content: 'We officially kicked off the µLearn chapter at College of Engineering Adoor today! Over 100 students joined our orientation session to learn about the power of peer networking, karma points, and proof-of-work. This is just the beginning.',
-        imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop',
         date: new Date('2026-08-01T10:00:00Z').toISOString(),
         author: 'Adwaith S A'
     }
