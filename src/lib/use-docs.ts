@@ -9,7 +9,7 @@ export interface DocPost {
     author: string;
 }
 
-const STORAGE_KEY = 'mulearn_docs';
+const STORAGE_KEY = 'mulearn_docs_v2';
 
 const INITIAL_DOCS: DocPost[] = [
     {
