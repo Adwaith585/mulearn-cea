@@ -67,5 +67,14 @@ export function useDocs() {
         window.dispatchEvent(new Event('docs-updated'));
     };
 
-    return { docs, addDoc, deleteDoc, refresh: fetchDocs };
+    const updateDoc = (id: string, updatedFields: Partial<Omit<DocPost, 'id' | 'date'>>) => {
+        const updatedDocs = docs.map(d =>
+            d.id === id ? { ...d, ...updatedFields } : d
+        );
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedDocs));
+        setDocs(updatedDocs);
+        window.dispatchEvent(new Event('docs-updated'));
+    };
+
+    return { docs, addDoc, deleteDoc, updateDoc, refresh: fetchDocs };
 }

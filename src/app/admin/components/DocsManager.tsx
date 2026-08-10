@@ -4,11 +4,12 @@ import { useState } from 'react';
 import { useDocs } from '@/lib/use-docs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Trash2, Plus, Calendar } from 'lucide-react';
+import { Trash2, Plus, Calendar, Edit } from 'lucide-react';
 
 export function DocsManager() {
-    const { docs, addDoc, deleteDoc } = useDocs();
+    const { docs, addDoc, deleteDoc, updateDoc } = useDocs();
     const [isAdding, setIsAdding] = useState(false);
+    const [editingId, setEditingId] = useState<string | null>(null);
 
     // Form State
     const [title, setTitle] = useState("");
@@ -20,12 +21,21 @@ export function DocsManager() {
         e.preventDefault();
         if (!title || !content || !author) return;
 
-        addDoc({
-            title,
-            content,
-            imageUrl: imageUrl || undefined,
-            author
-        });
+        if (editingId) {
+            updateDoc(editingId, {
+                title,
+                content,
+                imageUrl: imageUrl || undefined,
+                author
+            });
+        } else {
+            addDoc({
+                title,
+                content,
+                imageUrl: imageUrl || undefined,
+                author
+            });
+        }
 
         // Reset
         setTitle("");
@@ -33,6 +43,18 @@ export function DocsManager() {
         setImageUrl("");
         setAuthor("");
         setIsAdding(false);
+        setEditingId(null);
+    };
+
+    const handleEdit = (doc: any) => {
+        setEditingId(doc.id);
+        setTitle(doc.title);
+        setContent(doc.content);
+        setImageUrl(doc.imageUrl || "");
+        setAuthor(doc.author);
+        setIsAdding(true);
+        // smooth scroll to top where form is
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (
@@ -53,7 +75,7 @@ export function DocsManager() {
             {isAdding && (
                 <Card className="bg-surface/50 border-primary/20 shadow-[0_0_30px_rgba(108,92,231,0.1)]">
                     <CardHeader>
-                        <CardTitle>Create New Document</CardTitle>
+                        <CardTitle>{editingId ? "Edit Document" : "Create New Document"}</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <form onSubmit={handleSubmit} className="space-y-4">
@@ -106,7 +128,7 @@ export function DocsManager() {
                             </div>
 
                             <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white mt-4">
-                                Publish Document
+                                {editingId ? "Save Changes" : "Publish Document"}
                             </Button>
                         </form>
                     </CardContent>
@@ -131,12 +153,20 @@ export function DocsManager() {
                                     <CardTitle className="text-lg leading-tight mb-2">{doc.title}</CardTitle>
                                     <p className="text-sm font-medium text-text-muted">By {doc.author}</p>
                                 </div>
-                                <button
-                                    onClick={() => deleteDoc(doc.id)}
-                                    className="p-2 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white transition-colors border border-red-500/20"
-                                >
-                                    <Trash2 className="w-4 h-4" />
-                                </button>
+                                <div className="flex gap-2">
+                                    <button
+                                        onClick={() => handleEdit(doc)}
+                                        className="p-2 rounded-lg bg-surface hover:bg-white/10 text-text-muted hover:text-white transition-colors border border-white/5"
+                                    >
+                                        <Edit className="w-4 h-4" />
+                                    </button>
+                                    <button
+                                        onClick={() => deleteDoc(doc.id)}
+                                        className="p-2 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white transition-colors border border-red-500/20"
+                                    >
+                                        <Trash2 className="w-4 h-4" />
+                                    </button>
+                                </div>
                             </div>
                         </CardHeader>
                         <CardContent>
