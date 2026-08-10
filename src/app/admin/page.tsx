@@ -5,7 +5,6 @@ import { useApplications } from '@/lib/use-members';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Check, X, ShieldAlert, User, Link, Globe, Camera, Lock, Users, Calendar, LayoutDashboard, FileText } from 'lucide-react';
-import { verifyAdminPassword } from './actions';
 import { EventsManager } from './components/EventsManager';
 import { ProjectsManager } from './components/ProjectsManager';
 import { DocsManager } from './components/DocsManager';
@@ -32,17 +31,22 @@ export default function AdminDashboard() {
                         <CardTitle className="text-2xl font-bold font-heading">Admin Login</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-6">
-                        <form onSubmit={async (e) => {
+                        <form onSubmit={(e) => {
                             e.preventDefault();
                             setIsChecking(true);
                             setError("");
-                            const isValid = await verifyAdminPassword(password);
-                            setIsChecking(false);
-                            if (isValid) {
-                                setIsAuthenticated(true);
-                            } else {
-                                setError("Invalid admin password");
-                            }
+                            // For static export compatibility (No Server Actions), checking via client env or fallback
+                            const validPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "cea2026";
+                            const isValid = password === validPassword;
+
+                            setTimeout(() => {
+                                setIsChecking(false);
+                                if (isValid) {
+                                    setIsAuthenticated(true);
+                                } else {
+                                    setError("Invalid admin password");
+                                }
+                            }, 400); // simulated slight delay
                         }} className="space-y-4">
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-text-muted uppercase tracking-wider block">Password</label>
