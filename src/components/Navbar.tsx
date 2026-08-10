@@ -11,6 +11,7 @@ const links = [
     { name: 'Members', href: '/members' },
     { name: 'Events', href: '/events' },
     { name: 'Projects', href: '/projects' },
+    { name: 'Docs', href: '/docs' },
     { name: 'Join Us', href: '/join' },
     { name: 'Admin', href: '/admin' },
 ]

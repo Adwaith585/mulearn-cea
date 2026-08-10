@@ -4,17 +4,18 @@ import { useState } from 'react';
 import { useApplications } from '@/lib/use-members';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Check, X, ShieldAlert, User, Link, Globe, Camera, Lock, Users, Calendar, LayoutDashboard } from 'lucide-react';
+import { Check, X, ShieldAlert, User, Link, Globe, Camera, Lock, Users, Calendar, LayoutDashboard, FileText } from 'lucide-react';
 import { verifyAdminPassword } from './actions';
 import { EventsManager } from './components/EventsManager';
 import { ProjectsManager } from './components/ProjectsManager';
+import { DocsManager } from './components/DocsManager';
 
 export default function AdminDashboard() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [isChecking, setIsChecking] = useState(false);
-    const [activeTab, setActiveTab] = useState<'members' | 'events' | 'projects'>('members');
+    const [activeTab, setActiveTab] = useState<'members' | 'events' | 'projects' | 'docs'>('members');
 
     const { applications, approveApplication, rejectApplication, updateApplication, approveKarma } = useApplications();
     const pendingApps = applications.filter(app => app.status === 'pending');
@@ -84,6 +85,9 @@ export default function AdminDashboard() {
                     </button>
                     <button onClick={() => setActiveTab('projects')} className={`px-6 py-2.5 rounded-lg text-sm font-bold flex items-center transition-all ${activeTab === 'projects' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-text-muted hover:text-white'}`}>
                         <LayoutDashboard className="w-4 h-4 mr-2" /> Projects
+                    </button>
+                    <button onClick={() => setActiveTab('docs')} className={`px-6 py-2.5 rounded-lg text-sm font-bold flex items-center transition-all ${activeTab === 'docs' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-text-muted hover:text-white'}`}>
+                        <FileText className="w-4 h-4 mr-2" /> Docs
                     </button>
                 </div>
             </section>
@@ -201,6 +205,12 @@ export default function AdminDashboard() {
             {activeTab === 'events' && <div className="animate-in fade-in zoom-in-95 duration-300"><EventsManager /></div>}
 
             {activeTab === 'projects' && <div className="animate-in fade-in zoom-in-95 duration-300"><ProjectsManager /></div>}
+
+            {activeTab === 'docs' && (
+                <div className="animate-in fade-in zoom-in-95 duration-300">
+                    <DocsManager />
+                </div>
+            )}
 
         </div >
     );
