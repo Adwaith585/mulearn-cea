@@ -1,0 +1,4 @@
+src/app/members/page.tsx(193,34): error TS2304: Cannot find name 'Users'.
+src/components/ui/MemberCard.tsx(3,10): error TS2305: Module '"lucide-react"' has no exported member 'Github'.
+src/components/ui/MemberCard.tsx(3,18): error TS2305: Module '"lucide-react"' has no exported member 'Linkedin'.
+src/components/ui/MemberCard.tsx(3,28): error TS2305: Module '"lucide-react"' has no exported member 'Instagram'.
