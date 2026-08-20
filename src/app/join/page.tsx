@@ -17,7 +17,7 @@ export default function JoinPage() {
     return (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-24">
             <section className="text-center max-w-3xl mx-auto space-y-6">
-                <h1 className="text-4xl md:text-5xl font-heading font-bold text-white leading-tight">Join the Network</h1>
+                <h1 className="text-4xl md:text-5xl font-heading font-bold text-text-primary leading-tight">Join the Network</h1>
                 <p className="text-xl text-text-muted leading-relaxed">
                     Ready to build your proof-of-work portfolio? Follow these steps to become an official member of the CEA chapter.
                 </p>
@@ -27,7 +27,7 @@ export default function JoinPage() {
             <section className="max-w-4xl mx-auto space-y-8">
                 <div className="grid md:grid-cols-2 gap-8">
                     <Card className="bg-surface/40 hover:border-primary/30 transition-colors">
-                        <CardHeader className="flex flex-row items-center gap-4 border-b border-white/5 pb-4">
+                        <CardHeader className="flex flex-row items-center gap-4 border-b border-border pb-4">
                             <div className="w-10 h-10 flex-shrink-0 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-lg">1</div>
                             <CardTitle className="text-xl">Create Account</CardTitle>
                         </CardHeader>
@@ -42,7 +42,7 @@ export default function JoinPage() {
                     </Card>
 
                     <Card className="bg-surface/40 hover:border-primary/30 transition-colors">
-                        <CardHeader className="flex flex-row items-center gap-4 border-b border-white/5 pb-4">
+                        <CardHeader className="flex flex-row items-center gap-4 border-b border-border pb-4">
                             <div className="w-10 h-10 flex-shrink-0 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-lg">2</div>
                             <CardTitle className="text-xl">Join a Learning Circle</CardTitle>
                         </CardHeader>
@@ -52,7 +52,7 @@ export default function JoinPage() {
                     </Card>
 
                     <Card className="bg-surface/40 hover:border-karma/40 transition-colors md:col-start-1 md:col-end-3 border-karma/10">
-                        <CardHeader className="flex flex-row items-center gap-4 border-b border-white/5 pb-4">
+                        <CardHeader className="flex flex-row items-center gap-4 border-b border-border pb-4">
                             <div className="w-10 h-10 flex-shrink-0 rounded-full bg-karma/20 text-karma flex items-center justify-center font-bold text-lg">3</div>
                             <CardTitle className="text-xl">Start Earning Karma</CardTitle>
                         </CardHeader>
@@ -70,14 +70,14 @@ export default function JoinPage() {
                         <div className="inline-flex items-center gap-2 text-[#5865F2] font-bold mb-1 uppercase tracking-wider text-sm bg-[#5865F2]/10 px-3 py-1 rounded-full">
                             <MessageSquare className="w-4 h-4" /> Global Discord
                         </div>
-                        <h2 className="text-2xl font-heading font-bold text-white">Statewide Network</h2>
+                        <h2 className="text-2xl font-heading font-bold text-text-primary">Statewide Network</h2>
                         <p className="text-text-muted leading-relaxed text-sm">
                             Join the main official µLearn Discord to access the 64,000+ strong state network.
                         </p>
                     </div>
                     <div className="w-full mt-auto">
                         <a href="https://discord.gg/gtech-mulearn-771670169691881483" target="_blank" rel="noreferrer" className="inline-block w-full">
-                            <Button size="lg" className="w-full bg-[#5865F2] hover:bg-[#5865F2]/90 text-white border-0 shadow-[0_0_20px_rgba(88,101,242,0.3)] h-12">
+                            <Button size="lg" className="w-full bg-[#5865F2] hover:bg-[#5865F2]/90 text-text-primary border-0 shadow-[0_0_20px_rgba(88,101,242,0.3)] h-12">
                                 Join Discord
                             </Button>
                         </a>
@@ -89,14 +89,14 @@ export default function JoinPage() {
                         <div className="inline-flex items-center gap-2 text-[#25D366] font-bold mb-1 uppercase tracking-wider text-sm bg-[#25D366]/10 px-3 py-1 rounded-full">
                             <MessageSquare className="w-4 h-4" /> Whatsapp
                         </div>
-                        <h2 className="text-2xl font-heading font-bold text-white">The Chapter HQ</h2>
+                        <h2 className="text-2xl font-heading font-bold text-text-primary">The Chapter HQ</h2>
                         <p className="text-text-muted leading-relaxed text-sm">
                             This is where everything happens locally: circle coordination, event announcements, and peer support.
                         </p>
                     </div>
                     <div className="w-full mt-auto">
                         <a href="https://chat.whatsapp.com/JOtRONslmpyJyMIYipZEiM" target="_blank" rel="noreferrer" className="inline-block w-full">
-                            <Button size="lg" className="w-full bg-[#25D366] hover:bg-[#25D366]/90 text-white border-0 shadow-[0_0_20px_rgba(37,211,102,0.3)] h-12">
+                            <Button size="lg" className="w-full bg-[#25D366] hover:bg-[#25D366]/90 text-text-primary border-0 shadow-[0_0_20px_rgba(37,211,102,0.3)] h-12">
                                 Join WhatsApp
                             </Button>
                         </a>
@@ -109,9 +109,9 @@ export default function JoinPage() {
                 <h2 className="text-3xl font-heading font-bold text-center mb-10">Frequently Asked Questions</h2>
                 <div className="space-y-4">
                     {faqs.map((faq, i) => (
-                        <Card key={i} className="bg-surface/30 border-white/5">
+                        <Card key={i} className="bg-surface/30 border-border">
                             <CardContent className="p-6 md:p-8">
-                                <h3 className="font-bold text-lg mb-3 text-white flex items-start gap-3">
+                                <h3 className="font-bold text-lg mb-3 text-text-primary flex items-start gap-3">
                                     <span className="text-primary font-mono opacity-50">Q.</span>
                                     {faq.q}
                                 </h3>

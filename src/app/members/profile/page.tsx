@@ -39,7 +39,7 @@ export default function ProfilePage() {
     if (!user) {
         return (
             <div className="container mx-auto px-4 py-32 text-center">
-                <h1 className="text-3xl font-heading font-bold text-white mb-4">Profile Not Found</h1>
+                <h1 className="text-3xl font-heading font-bold text-text-primary mb-4">Profile Not Found</h1>
                 <p className="text-text-muted mb-8">You need to apply first to have a profile.</p>
                 <Button onClick={() => router.push('/members/apply')}>Apply Now</Button>
             </div>
@@ -83,13 +83,13 @@ export default function ProfilePage() {
                     )}
                 </div>
                 <div>
-                    <h1 className="text-4xl font-heading font-bold text-white">{user.name}</h1>
+                    <h1 className="text-4xl font-heading font-bold text-text-primary">{user.name}</h1>
                     <p className="text-lg text-text-muted capitalize">Status: <span className={user.status === 'approved' ? 'text-karma' : 'text-yellow-500'}>{user.status}</span></p>
                 </div>
             </section>
 
             <Card className="bg-surface/40 hover:border-primary/30 transition-colors">
-                <CardHeader className="border-b border-white/5 bg-white/5 flex flex-row items-center justify-between">
+                <CardHeader className="border-b border-border bg-black/5 dark:bg-white/10 flex flex-row items-center justify-between">
                     <div>
                         <CardTitle className="text-xl">My Interest Groups</CardTitle>
                         <p className="text-sm text-text-muted mt-1">You can change these at any time without admin approval (Max 3).</p>
@@ -108,10 +108,10 @@ export default function ProfilePage() {
                                     disabled={isDisabled}
                                     onClick={() => toggleDomain(group)}
                                     className={`px-4 py-2 text-sm font-bold rounded-full border transition-all ${isSelected
-                                        ? 'bg-primary border-primary text-white shadow-[0_0_15px_rgba(108,92,231,0.3)]'
+                                        ? 'bg-primary border-primary text-text-primary shadow-[0_0_15px_rgba(108,92,231,0.3)]'
                                         : isDisabled
-                                            ? 'bg-background/50 border-white/5 text-text-muted/30 cursor-not-allowed'
-                                            : 'bg-background border-white/10 text-text-muted hover:border-white/30 hover:text-white'
+                                            ? 'bg-background/50 border-border text-text-muted/30 cursor-not-allowed'
+                                            : 'bg-background border-border text-text-muted hover:border-border hover:text-text-primary'
                                         }`}
                                 >
                                     {group} {isSelected && <X className="inline-block ml-1 w-3 h-3" />}
@@ -120,14 +120,14 @@ export default function ProfilePage() {
                         })}
                     </div>
 
-                    <div className="pt-6 border-t border-white/5 space-y-4 mb-8">
+                    <div className="pt-6 border-t border-border space-y-4 mb-8">
                         <label className="text-sm font-bold text-text-muted uppercase tracking-wider block">Update Karma Points</label>
                         <div className="relative">
                             <input
                                 type="number"
                                 min="0"
                                 placeholder="Enter your current karma points..."
-                                className="w-full bg-background border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-karma/50 transition-colors font-mono"
+                                className="w-full bg-background border border-border rounded-xl py-3 px-4 text-text-primary focus:outline-none focus:border-karma/50 transition-colors font-mono"
                                 value={editingKarma || ''}
                                 onChange={e => setEditingKarma(parseInt(e.target.value) || 0)}
                             />
@@ -141,11 +141,11 @@ export default function ProfilePage() {
                         )}
                     </div>
 
-                    <div className="border-t border-white/5 pt-6 flex justify-end">
+                    <div className="border-t border-border pt-6 flex justify-end">
                         <Button
                             onClick={handleSave}
                             disabled={!hasChanges || isSaving || editingDomains.length === 0}
-                            className="bg-primary hover:bg-primary/90 text-white min-w-[150px]"
+                            className="bg-primary hover:bg-primary/90 text-background min-w-[150px]"
                         >
                             {isSaving ? "Saving..." : <><Check className="w-4 h-4 mr-2" /> Save Changes</>}
                         </Button>

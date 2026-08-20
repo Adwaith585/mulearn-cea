@@ -34,7 +34,7 @@ export function MemberCard({ member, className, onClick }: { member: MemberProps
             onClick={onClick}
             className={cn(
                 "group relative flex flex-col items-center p-6 rounded-2xl border bg-surface/60 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10 cursor-pointer overflow-hidden",
-                member.isCore ? "border-primary/40 shadow-[0_0_20px_rgba(108,92,231,0.15)]" : "border-white/5",
+                member.isCore ? "border-primary/40 shadow-[0_0_20px_rgba(108,92,231,0.15)]" : "border-border",
                 className
             )}
         >
@@ -67,18 +67,18 @@ export function MemberCard({ member, className, onClick }: { member: MemberProps
 
             <div className="flex flex-wrap gap-1.5 justify-center mb-5">
                 {member.domains.slice(0, 2).map((domain) => (
-                    <span key={domain} className="text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded-sm bg-white/5 text-text-muted">
+                    <span key={domain} className="text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded-sm bg-black/5 dark:bg-white/10 text-text-muted">
                         {domain}
                     </span>
                 ))}
                 {member.domains.length > 2 && (
-                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded-sm bg-white/5 text-text-muted">
+                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded-sm bg-black/5 dark:bg-white/10 text-text-muted">
                         +{member.domains.length - 2}
                     </span>
                 )}
             </div>
 
-            <div className="flex items-center gap-1.5 mt-auto pt-4 border-t border-white/5 w-full justify-center">
+            <div className="flex items-center gap-1.5 mt-auto pt-4 border-t border-border w-full justify-center">
                 <span className="font-mono text-karma font-bold text-xl">{member.karma.toLocaleString()}</span>
                 <span className="text-[10px] text-text-muted uppercase tracking-widest font-semibold mt-0.5">KP</span>
             </div>
@@ -86,7 +86,7 @@ export function MemberCard({ member, className, onClick }: { member: MemberProps
             {/* Hover Socials Overlay */}
             <div className="absolute inset-0 bg-background/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
                 {member.github && (
-                    <a href={member.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-white transition-colors p-2" onClick={(e) => e.stopPropagation()}>
+                    <a href={member.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-text-primary transition-colors p-2" onClick={(e) => e.stopPropagation()}>
                         <Github size={24} />
                     </a>
                 )}

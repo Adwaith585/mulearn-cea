@@ -62,7 +62,7 @@ const leads: LeadProps[] = [
     },
     {
         name: "Adwaith P",
-        role: "Media Management",
+        role: "Media Lead",
         description: "Creative mind behind the media and digital presence of the µLearn CEA chapter. Passionate about cybersecurity and technology, with technical skills in full-stack development, programming, and creative content production.",
         image: "/leads/adwaithp.png",
         glowColor: "rgba(251, 194, 235, 0.5)", // Light Pink
@@ -103,14 +103,14 @@ function LeadCard({ lead, index, onClick }: { lead: LeadProps, index: number, on
                 }}
             />
 
-            <div className="relative flex flex-col h-full bg-background border border-white/10 rounded-3xl p-8 overflow-hidden transition-all duration-500 hover:-translate-y-2 z-10 m-[1px]">
+            <div className="relative flex flex-col h-full bg-background border border-border rounded-3xl p-8 overflow-hidden transition-all duration-500 hover:-translate-y-2 z-10 m-[1px]">
                 <div
                     className="absolute -top-12 -right-12 w-48 h-48 blur-[80px] opacity-30 transition-opacity duration-500 group-hover:opacity-70 pointer-events-none"
                     style={{ backgroundColor: lead.glowColor.replace('0.5', '1') }}
                 />
 
                 <div
-                    className="relative w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden border-4 border-surface group-hover:border-white/10 transition-colors z-10 shadow-2xl"
+                    className="relative w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden border-4 border-surface group-hover:border-border transition-colors z-10 shadow-2xl"
                 >
                     <div
                         className="absolute inset-0 z-0 w-full h-full animate-pulse opacity-50 blur-xl"
@@ -124,29 +124,29 @@ function LeadCard({ lead, index, onClick }: { lead: LeadProps, index: number, on
                 </div>
 
                 <div className="text-center flex-1 flex flex-col z-10 items-center">
-                    <h3 className="text-2xl font-bold font-heading text-white mb-2 group-hover:text-primary transition-colors">{lead.name}</h3>
-                    <p className="inline-block px-4 py-1.5 bg-surface border border-white/5 shadow-inner rounded-full text-xs font-mono font-bold tracking-wider text-karma mb-5 uppercase hover:border-white/20 transition-colors">
+                    <h3 className="text-2xl font-bold font-heading text-text-primary mb-2 group-hover:text-primary transition-colors">{lead.name}</h3>
+                    <p className="inline-block px-4 py-1.5 bg-surface border border-border shadow-inner rounded-full text-xs font-mono font-bold tracking-wider text-karma mb-5 uppercase hover:border-border transition-colors">
                         {lead.role}
                     </p>
                     <p className="text-text-muted text-sm leading-relaxed mb-8 flex-1 w-full relative">
-                        <span className="absolute -left-2 -top-2 text-3xl font-heading text-white/5">&quot;</span>
+                        <span className="absolute -left-2 -top-2 text-3xl font-heading text-text-primary/5">&quot;</span>
                         {lead.description}
-                        <span className="absolute -right-2 -bottom-4 text-3xl font-heading text-white/5">&quot;</span>
+                        <span className="absolute -right-2 -bottom-4 text-3xl font-heading text-text-primary/5">&quot;</span>
                     </p>
 
                     <div className="flex items-center justify-center gap-4 mt-auto">
                         {lead.socials.github && (
-                            <div className="p-2.5 bg-surface hover:bg-white/10 rounded-full transition-colors text-white/50 hover:text-white border border-white/5 hover:border-white/20">
+                            <div className="p-2.5 bg-surface hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors text-text-primary/50 hover:text-text-primary border border-border hover:border-border">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
                             </div>
                         )}
                         {lead.socials.linkedin && (
-                            <div className="p-2.5 bg-surface hover:bg-[#0A66C2]/20 rounded-full transition-colors text-white/50 hover:text-[#0A66C2] border border-white/5 hover:border-[#0A66C2]/50">
+                            <div className="p-2.5 bg-surface hover:bg-[#0A66C2]/20 rounded-full transition-colors text-text-primary/50 hover:text-[#0A66C2] border border-border hover:border-[#0A66C2]/50">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
                             </div>
                         )}
                         {lead.socials.mail && (
-                            <div className="p-2.5 bg-surface hover:bg-karma/20 rounded-full transition-colors text-white/50 hover:text-karma border border-white/5 hover:border-karma/50">
+                            <div className="p-2.5 bg-surface hover:bg-karma/20 rounded-full transition-colors text-text-primary/50 hover:text-karma border border-border hover:border-karma/50">
                                 <Mail className="w-5 h-5" />
                             </div>
                         )}
@@ -175,12 +175,12 @@ export default function LeadsPage() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="max-w-3xl mx-auto space-y-6"
                 >
-                    <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-surface border border-white/10 text-xs font-bold uppercase tracking-widest text-primary mb-2 shadow-xl shadow-primary/10">
+                    <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-surface border border-border text-xs font-bold uppercase tracking-widest text-primary mb-2 shadow-xl shadow-primary/10">
                         <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_#6C5CE7]" />
                         The Core Team
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-bold font-heading tracking-tighter text-white drop-shadow-lg">
-                        Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-karma">Leads</span>
+                    <h1 className="text-5xl md:text-7xl font-bold font-heading tracking-tighter text-text-primary drop-shadow-lg">
+                        Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-[#F5B942] dark:to-karma">Leads</span>
                     </h1>
                     <p className="text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">
                         The visionary students working behind the scenes to make the CEA µLearn chapter an absolute powerhouse.
@@ -203,7 +203,7 @@ export default function LeadsPage() {
                     transition={{ delay: 1, duration: 1 }}
                     className="flex justify-center mt-12"
                 >
-                    <Link href="/members" className="group flex items-center justify-center gap-3 px-8 py-4 bg-surface/50 border border-white/10 rounded-full text-white hover:bg-white/10 transition-all text-sm font-bold backdrop-blur-md shadow-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+                    <Link href="/members" className="group flex items-center justify-center gap-3 px-8 py-4 bg-surface/50 border border-border rounded-full text-text-primary hover:bg-black/5 dark:hover:bg-white/10 transition-all text-sm font-bold backdrop-blur-md shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.05)]">
                         <ArrowRight className="w-4 h-4 rotate-180 transition-transform group-hover:-translate-x-1" />
                         Back to All Members
                     </Link>
@@ -251,7 +251,7 @@ export default function LeadsPage() {
                                 stiffness: 90,
                                 mass: 1
                             }}
-                            className="relative w-full max-w-lg bg-surface border border-white/20 rounded-[2.5rem] p-10 overflow-hidden shadow-[0_0_150px_rgba(0,0,0,0.8)] cursor-default"
+                            className="relative w-full max-w-lg bg-surface border border-border rounded-[2.5rem] p-10 overflow-hidden shadow-[0_0_150px_rgba(0,0,0,0.8)] cursor-default"
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Ambient Light inside modal */}
@@ -266,13 +266,13 @@ export default function LeadsPage() {
 
                             <button
                                 onClick={() => setSelectedLead(null)}
-                                className="absolute top-6 right-6 p-2 rounded-full bg-white/5 hover:bg-white/10 text-text-muted hover:text-white transition-colors z-20 border border-white/10 hover:rotate-90 duration-300"
+                                className="absolute top-6 right-6 p-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/5 dark:hover:bg-white/10 text-text-muted hover:text-text-primary transition-colors z-20 border border-border hover:rotate-90 duration-300"
                             >
                                 <X className="w-5 h-5" />
                             </button>
 
                             <div
-                                className="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white/10 z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                                className="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-border z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                             >
                                 <img
                                     src={selectedLead.image}
@@ -282,33 +282,33 @@ export default function LeadsPage() {
                             </div>
 
                             <div className="text-center z-10 relative">
-                                <h3 className="text-4xl font-bold font-heading text-white mb-3 drop-shadow-md">
+                                <h3 className="text-4xl font-bold font-heading text-text-primary mb-3 drop-shadow-md">
                                     {selectedLead.name}
                                 </h3>
 
-                                <p className="inline-block px-5 py-2 bg-background border border-white/10 shadow-inner rounded-full text-sm font-mono font-bold tracking-wider text-karma mb-6 uppercase">
+                                <p className="inline-block px-5 py-2 bg-background border border-border shadow-inner rounded-full text-sm font-mono font-bold tracking-wider text-karma mb-6 uppercase">
                                     {selectedLead.role}
                                 </p>
 
                                 <p className="text-text-muted text-lg leading-relaxed mb-10 w-full relative">
-                                    <span className="absolute -left-4 -top-4 text-4xl font-heading text-white/5">&quot;</span>
+                                    <span className="absolute -left-4 -top-4 text-4xl font-heading text-text-primary/5">&quot;</span>
                                     {selectedLead.description}
-                                    <span className="absolute -right-4 -bottom-6 text-4xl font-heading text-white/5">&quot;</span>
+                                    <span className="absolute -right-4 -bottom-6 text-4xl font-heading text-text-primary/5">&quot;</span>
                                 </p>
 
                                 <div className="flex items-center justify-center gap-6">
                                     {selectedLead.socials.github && (
-                                        <Link href={selectedLead.socials.github} className="p-4 bg-background hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white border border-white/10 shadow-lg hover:border-white/30 hover:-translate-y-1 transform duration-300">
+                                        <Link href={selectedLead.socials.github} className="p-4 bg-background hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors text-text-primary/60 hover:text-text-primary border border-border shadow-lg hover:border-border hover:-translate-y-1 transform duration-300">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
                                         </Link>
                                     )}
                                     {selectedLead.socials.linkedin && (
-                                        <Link href={selectedLead.socials.linkedin} className="p-4 bg-background hover:bg-[#0A66C2]/20 rounded-full transition-colors text-white/60 hover:text-[#0A66C2] border border-white/10 shadow-lg hover:border-[#0A66C2]/50 hover:-translate-y-1 transform duration-300">
+                                        <Link href={selectedLead.socials.linkedin} className="p-4 bg-background hover:bg-[#0A66C2]/20 rounded-full transition-colors text-text-primary/60 hover:text-[#0A66C2] border border-border shadow-lg hover:border-[#0A66C2]/50 hover:-translate-y-1 transform duration-300">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
                                         </Link>
                                     )}
                                     {selectedLead.socials.mail && (
-                                        <Link href={selectedLead.socials.mail} className="p-4 bg-background hover:bg-karma/20 rounded-full transition-colors text-white/60 hover:text-karma border border-white/10 shadow-lg hover:border-karma/50 hover:-translate-y-1 transform duration-300">
+                                        <Link href={selectedLead.socials.mail} className="p-4 bg-background hover:bg-karma/20 rounded-full transition-colors text-text-primary/60 hover:text-karma border border-border shadow-lg hover:border-karma/50 hover:-translate-y-1 transform duration-300">
                                             <Mail className="w-6 h-6" />
                                         </Link>
                                     )}

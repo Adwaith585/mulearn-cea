@@ -16,7 +16,7 @@ export default function EventsPage() {
                 <AnimatedMotif />
                 <div className="relative z-10 text-center max-w-2xl mx-auto px-4 space-y-8 animate-in fade-in zoom-in-95 duration-500">
                     <span className="inline-block text-karma text-sm font-bold tracking-widest uppercase bg-karma/10 px-4 py-2 rounded-full border border-karma/20 shadow-[0_0_15px_rgba(245,185,66,0.1)]">Coming Soon</span>
-                    <h1 className="text-5xl md:text-7xl font-heading font-bold text-white tracking-tight">Events</h1>
+                    <h1 className="text-5xl md:text-7xl font-heading font-bold text-text-primary tracking-tight">Events</h1>
                     <p className="text-xl text-text-muted leading-relaxed">
                         We're planning skill challenges, innovation sprints, and weekly circles. Jump into Discord to get notified when our first event drops!
                     </p>
@@ -33,7 +33,7 @@ export default function EventsPage() {
     return (
         <div className="container mx-auto px-4 py-24 max-w-6xl space-y-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
             <section className="text-center space-y-4 max-w-2xl mx-auto">
-                <h1 className="text-5xl md:text-7xl font-heading font-bold text-white tracking-tight">Events</h1>
+                <h1 className="text-5xl md:text-7xl font-heading font-bold text-text-primary tracking-tight">Events</h1>
                 <p className="text-xl text-text-muted leading-relaxed">
                     Join our upcoming meetups, workshops, and build sprints.
                 </p>
@@ -49,7 +49,7 @@ export default function EventsPage() {
                         )}
                         <CardContent className="p-6 space-y-4">
                             <div className="flex justify-between items-start gap-4">
-                                <h3 className="text-2xl font-bold font-heading text-white">{event.title}</h3>
+                                <h3 className="text-2xl font-bold font-heading text-text-primary">{event.title}</h3>
                                 <span className={`text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded text-background ${event.status === 'upcoming' ? 'bg-primary' :
                                         event.status === 'ongoing' ? 'bg-karma' : 'bg-text-muted'
                                     }`}>
@@ -59,7 +59,7 @@ export default function EventsPage() {
 
                             <p className="text-text-muted line-clamp-3 leading-relaxed">{event.description}</p>
 
-                            <div className="space-y-2 pt-4 border-t border-white/5 font-mono text-sm">
+                            <div className="space-y-2 pt-4 border-t border-border font-mono text-sm">
                                 <div className="flex items-center text-text-muted">
                                     <Calendar className="w-4 h-4 mr-3 text-primary" /> {event.date}
                                 </div>
@@ -70,7 +70,7 @@ export default function EventsPage() {
 
                             {event.linkUrl && (
                                 <div className="pt-4">
-                                    <a href={event.linkUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-bold text-primary hover:text-white transition-colors">
+                                    <a href={event.linkUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-bold text-primary hover:text-text-primary transition-colors">
                                         View Details <ExternalLink className="w-4 h-4 ml-1" />
                                     </a>
                                 </div>

@@ -25,7 +25,7 @@ export default function AdminDashboard() {
         return (
             <div className="container mx-auto px-4 py-32 max-w-md animate-in fade-in zoom-in-95 duration-500">
                 <Card className="bg-surface/40 hover:border-primary/30 transition-colors">
-                    <CardHeader className="text-center border-b border-white/5 pb-6">
+                    <CardHeader className="text-center border-b border-border pb-6">
                         <div className="w-16 h-16 bg-primary/20 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
                             <Lock className="w-8 h-8" />
                         </div>
@@ -51,11 +51,11 @@ export default function AdminDashboard() {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     placeholder="Enter admin password..."
-                                    className="w-full bg-background border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-primary/50 transition-colors"
+                                    className="w-full bg-background border border-border rounded-xl py-3 px-4 text-text-primary focus:outline-none focus:border-primary/50 transition-colors"
                                 />
                                 {error && <p className="text-red-400 text-sm mt-1">{error}</p>}
                             </div>
-                            <Button type="submit" disabled={isChecking} className="w-full bg-primary hover:bg-primary/90 text-white mt-4">
+                            <Button type="submit" disabled={isChecking} className="w-full bg-primary hover:bg-primary/90 text-background mt-4">
                                 {isChecking ? "Checking..." : "Login"}
                             </Button>
                         </form>
@@ -72,21 +72,21 @@ export default function AdminDashboard() {
                     <ShieldAlert className="w-8 h-8" />
                 </div>
                 <div>
-                    <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">Admin Dashboard</h1>
+                    <h1 className="text-4xl md:text-5xl font-heading font-bold text-text-primary mb-2">Admin Dashboard</h1>
                     <p className="text-xl text-text-muted">Manage website content and applications.</p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-2 p-1 bg-surface/30 rounded-xl border border-white/5 mx-auto max-w-fit">
-                    <button onClick={() => setActiveTab('members')} className={`px-6 py-2.5 rounded-lg text-sm font-bold flex items-center transition-all ${activeTab === 'members' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-text-muted hover:text-white'}`}>
+                <div className="flex flex-wrap justify-center gap-2 p-1 bg-surface/30 rounded-xl border border-border mx-auto max-w-fit">
+                    <button onClick={() => setActiveTab('members')} className={`px-6 py-2.5 rounded-lg text-sm font-bold flex items-center transition-all ${activeTab === 'members' ? 'bg-primary text-background shadow-lg shadow-primary/20' : 'text-text-muted hover:text-text-primary'}`}>
                         <Users className="w-4 h-4 mr-2" /> Members
                     </button>
-                    <button onClick={() => setActiveTab('events')} className={`px-6 py-2.5 rounded-lg text-sm font-bold flex items-center transition-all ${activeTab === 'events' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-text-muted hover:text-white'}`}>
+                    <button onClick={() => setActiveTab('events')} className={`px-6 py-2.5 rounded-lg text-sm font-bold flex items-center transition-all ${activeTab === 'events' ? 'bg-primary text-background shadow-lg shadow-primary/20' : 'text-text-muted hover:text-text-primary'}`}>
                         <Calendar className="w-4 h-4 mr-2" /> Events
                     </button>
-                    <button onClick={() => setActiveTab('projects')} className={`px-6 py-2.5 rounded-lg text-sm font-bold flex items-center transition-all ${activeTab === 'projects' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-text-muted hover:text-white'}`}>
+                    <button onClick={() => setActiveTab('projects')} className={`px-6 py-2.5 rounded-lg text-sm font-bold flex items-center transition-all ${activeTab === 'projects' ? 'bg-primary text-background shadow-lg shadow-primary/20' : 'text-text-muted hover:text-text-primary'}`}>
                         <LayoutDashboard className="w-4 h-4 mr-2" /> Projects
                     </button>
-                    <button onClick={() => setActiveTab('docs')} className={`px-6 py-2.5 rounded-lg text-sm font-bold flex items-center transition-all ${activeTab === 'docs' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-text-muted hover:text-white'}`}>
+                    <button onClick={() => setActiveTab('docs')} className={`px-6 py-2.5 rounded-lg text-sm font-bold flex items-center transition-all ${activeTab === 'docs' ? 'bg-primary text-background shadow-lg shadow-primary/20' : 'text-text-muted hover:text-text-primary'}`}>
                         <FileText className="w-4 h-4 mr-2" /> Docs
                     </button>
                 </div>
@@ -95,11 +95,11 @@ export default function AdminDashboard() {
             {activeTab === 'members' && (
                 <div className="space-y-12 animate-in fade-in zoom-in-95 duration-300">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-bold font-heading text-white flex items-center gap-2">
+                        <h2 className="text-2xl font-bold font-heading text-text-primary flex items-center gap-2">
                             Pending Approvals <span className="text-sm bg-primary/20 text-primary px-3 py-1 rounded-full">{pendingApps.length}</span>
                         </h2>
                         {pendingApps.length === 0 ? (
-                            <Card className="bg-surface/20 border-dashed border-white/10 text-center py-12">
+                            <Card className="bg-surface/20 border-dashed border-border text-center py-12">
                                 <CardContent>
                                     <p className="text-text-muted">No pending applications at the moment.</p>
                                 </CardContent>
@@ -110,15 +110,15 @@ export default function AdminDashboard() {
                                     <Card key={app.id} className="bg-surface/40 hover:border-primary/30 transition-colors">
                                         <CardContent className="p-6">
                                             <div className="flex items-start gap-4 mb-4">
-                                                <div className="w-12 h-12 rounded-full border border-white/10 overflow-hidden flex-shrink-0 bg-background text-text-muted flex items-center justify-center font-bold text-lg font-heading">
+                                                <div className="w-12 h-12 rounded-full border border-border overflow-hidden flex-shrink-0 bg-background text-text-muted flex items-center justify-center font-bold text-lg font-heading">
                                                     {app.imageUrl ? <img src={app.imageUrl} alt={app.name} className="w-full h-full object-cover" /> : app.name.charAt(0)}
                                                 </div>
                                                 <div className="flex-1 min-w-0">
-                                                    <h3 className="font-bold text-white text-lg truncate">{app.name}</h3>
+                                                    <h3 className="font-bold text-text-primary text-lg truncate">{app.name}</h3>
                                                     <div className="flex gap-2 mt-2 text-text-muted">
-                                                        {app.github && <Link className="w-4 h-4 cursor-pointer hover:text-white" />}
-                                                        {app.linkedin && <Globe className="w-4 h-4 cursor-pointer hover:text-white" />}
-                                                        {app.instagram && <Camera className="w-4 h-4 cursor-pointer hover:text-white" />}
+                                                        {app.github && <Link className="w-4 h-4 cursor-pointer hover:text-text-primary" />}
+                                                        {app.linkedin && <Globe className="w-4 h-4 cursor-pointer hover:text-text-primary" />}
+                                                        {app.instagram && <Camera className="w-4 h-4 cursor-pointer hover:text-text-primary" />}
                                                     </div>
                                                 </div>
                                             </div>
@@ -126,7 +126,7 @@ export default function AdminDashboard() {
                                                 <p className="text-xs font-bold text-text-muted uppercase tracking-wider mb-2">Interest Groups</p>
                                                 <div className="flex flex-wrap gap-2">
                                                     {app.domains.map(d => (
-                                                        <span key={d} className="text-xs px-2 py-1 bg-background border border-white/10 rounded-md text-text-muted">{d}</span>
+                                                        <span key={d} className="text-xs px-2 py-1 bg-background border border-border rounded-md text-text-muted">{d}</span>
                                                     ))}
                                                 </div>
                                             </div>
@@ -134,7 +134,7 @@ export default function AdminDashboard() {
                                                 <Button variant="outline" className="border-red-500/50 text-red-400 hover:bg-red-500/10 hover:text-red-400" onClick={() => rejectApplication(app.id)}>
                                                     <X className="w-4 h-4 mr-2" /> Reject
                                                 </Button>
-                                                <Button className="bg-karma hover:bg-karma/90 text-white" onClick={() => approveApplication(app.id)}>
+                                                <Button className="bg-karma hover:bg-karma/90 text-text-primary" onClick={() => approveApplication(app.id)}>
                                                     <Check className="w-4 h-4 mr-2" /> Approve {app.pendingKarma ? `(${app.pendingKarma} KP)` : ''}
                                                 </Button>
                                             </div>
@@ -145,21 +145,21 @@ export default function AdminDashboard() {
                         )}
                     </div>
 
-                    <div className="mt-16 border-t border-white/5 pt-12">
-                        <h2 className="text-2xl font-bold font-heading text-white flex items-center gap-2 mb-6">
+                    <div className="mt-16 border-t border-border pt-12">
+                        <h2 className="text-2xl font-bold font-heading text-text-primary flex items-center gap-2 mb-6">
                             Approved Members <span className="text-sm bg-karma/20 text-karma px-3 py-1 rounded-full">{approvedApps.length}</span>
                         </h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {approvedApps.map(app => (
-                                <Card key={app.id} className="bg-surface/30 hover:border-karma/30 transition-colors border-white/5">
+                                <Card key={app.id} className="bg-surface/30 hover:border-karma/30 transition-colors border-border">
                                     <CardContent className="p-5 flex flex-col h-full">
                                         <div className="flex items-center justify-between mb-4">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-full overflow-hidden bg-background border border-white/10 flex items-center justify-center text-xs font-bold shrink-0">
+                                                <div className="w-10 h-10 rounded-full overflow-hidden bg-background border border-border flex items-center justify-center text-xs font-bold shrink-0">
                                                     {app.imageUrl ? <img src={app.imageUrl} alt={app.name} className="w-full h-full object-cover" /> : app.name.charAt(0)}
                                                 </div>
                                                 <div className="min-w-0">
-                                                    <h3 className="font-bold text-white text-base truncate">{app.name}</h3>
+                                                    <h3 className="font-bold text-text-primary text-base truncate">{app.name}</h3>
                                                     <p className="text-xs text-text-muted mt-0.5 truncate">{app.domains.join(', ')}</p>
                                                 </div>
                                             </div>
@@ -174,12 +174,12 @@ export default function AdminDashboard() {
                                             </button>
                                         </div>
 
-                                        <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+                                        <div className="mt-auto pt-4 border-t border-border flex items-center justify-between">
                                             <span className="text-xs font-bold text-text-muted uppercase tracking-wider">Karma</span>
                                             <div className="flex items-center gap-2">
                                                 <button
                                                     onClick={() => updateApplication(app.id, { karma: Math.max(0, (app.karma || 0) - 100) })}
-                                                    className="w-7 h-7 rounded-md bg-background border border-white/10 flex items-center justify-center text-text-muted hover:text-white hover:border-white/30 transition-colors"
+                                                    className="w-7 h-7 rounded-md bg-background border border-border flex items-center justify-center text-text-muted hover:text-text-primary hover:border-border transition-colors"
                                                 >-</button>
                                                 <input
                                                     type="number"
@@ -189,7 +189,7 @@ export default function AdminDashboard() {
                                                 />
                                                 <button
                                                     onClick={() => updateApplication(app.id, { karma: (app.karma || 0) + 100 })}
-                                                    className="w-7 h-7 rounded-md bg-background border border-white/10 flex items-center justify-center text-text-muted hover:text-white hover:border-white/30 transition-colors"
+                                                    className="w-7 h-7 rounded-md bg-background border border-border flex items-center justify-center text-text-muted hover:text-text-primary hover:border-border transition-colors"
                                                 >+</button>
                                             </div>
                                         </div>

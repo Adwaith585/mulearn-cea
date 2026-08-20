@@ -45,17 +45,17 @@ export function EventsManager() {
     return (
         <div className="space-y-8">
             <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-bold font-heading text-white flex items-center gap-2">
+                <h2 className="text-2xl font-bold font-heading text-text-primary flex items-center gap-2">
                     Manage Events <span className="text-sm bg-primary/20 text-primary px-3 py-1 rounded-full">{events.length}</span>
                 </h2>
-                <Button onClick={() => setIsAdding(!isAdding)} className="bg-primary text-white">
+                <Button onClick={() => setIsAdding(!isAdding)} className="bg-primary text-background">
                     {isAdding ? "Cancel" : <><Plus className="w-4 h-4 mr-2" /> Add Event</>}
                 </Button>
             </div>
 
             {isAdding && (
                 <Card className="bg-surface/40 border-primary/30">
-                    <CardHeader className="border-b border-white/5 pb-4">
+                    <CardHeader className="border-b border-border pb-4">
                         <CardTitle className="text-xl text-primary">New Event</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-6">
@@ -63,19 +63,19 @@ export function EventsManager() {
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label className="text-sm text-text-muted">Event Title</label>
-                                    <input required type="text" value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} className="w-full bg-background border border-white/10 rounded-xl py-2 px-3 text-white" />
+                                    <input required type="text" value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} className="w-full bg-background border border-border rounded-xl py-2 px-3 text-text-primary" />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm text-text-muted">Date & Time</label>
-                                    <input required type="text" placeholder="e.g. Oct 24, 10:00 AM" value={formData.date} onChange={e => setFormData({ ...formData, date: e.target.value })} className="w-full bg-background border border-white/10 rounded-xl py-2 px-3 text-white" />
+                                    <input required type="text" placeholder="e.g. Oct 24, 10:00 AM" value={formData.date} onChange={e => setFormData({ ...formData, date: e.target.value })} className="w-full bg-background border border-border rounded-xl py-2 px-3 text-text-primary" />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm text-text-muted">Location</label>
-                                    <input required type="text" placeholder="e.g. College Seminar Hall" value={formData.location} onChange={e => setFormData({ ...formData, location: e.target.value })} className="w-full bg-background border border-white/10 rounded-xl py-2 px-3 text-white" />
+                                    <input required type="text" placeholder="e.g. College Seminar Hall" value={formData.location} onChange={e => setFormData({ ...formData, location: e.target.value })} className="w-full bg-background border border-border rounded-xl py-2 px-3 text-text-primary" />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm text-text-muted">Status</label>
-                                    <select value={formData.status} onChange={e => setFormData({ ...formData, status: e.target.value as any })} className="w-full bg-background border border-white/10 rounded-xl py-2 px-3 text-white">
+                                    <select value={formData.status} onChange={e => setFormData({ ...formData, status: e.target.value as any })} className="w-full bg-background border border-border rounded-xl py-2 px-3 text-text-primary">
                                         <option value="upcoming">Upcoming</option>
                                         <option value="ongoing">Ongoing</option>
                                         <option value="completed">Completed</option>
@@ -83,21 +83,21 @@ export function EventsManager() {
                                 </div>
                                 <div className="space-y-2 md:col-span-2">
                                     <label className="text-sm text-text-muted">Description</label>
-                                    <textarea required rows={3} value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} className="w-full bg-background border border-white/10 rounded-xl py-2 px-3 text-white" />
+                                    <textarea required rows={3} value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} className="w-full bg-background border border-border rounded-xl py-2 px-3 text-text-primary" />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm text-text-muted">Event Image</label>
                                     <div className="flex gap-4">
                                         {formData.imageUrl && <img src={formData.imageUrl} className="w-10 h-10 rounded object-cover" />}
-                                        <input type="file" accept="image/*" onChange={handleImageUpload} className="w-full bg-background border border-white/10 rounded-xl py-1 px-3 text-sm text-text-muted" />
+                                        <input type="file" accept="image/*" onChange={handleImageUpload} className="w-full bg-background border border-border rounded-xl py-1 px-3 text-sm text-text-muted" />
                                     </div>
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm text-text-muted">Link URL (Optional)</label>
-                                    <input type="url" placeholder="https://..." value={formData.linkUrl} onChange={e => setFormData({ ...formData, linkUrl: e.target.value })} className="w-full bg-background border border-white/10 rounded-xl py-2 px-3 text-white" />
+                                    <input type="url" placeholder="https://..." value={formData.linkUrl} onChange={e => setFormData({ ...formData, linkUrl: e.target.value })} className="w-full bg-background border border-border rounded-xl py-2 px-3 text-text-primary" />
                                 </div>
                             </div>
-                            <Button type="submit" className="w-full bg-primary text-white">Save Event</Button>
+                            <Button type="submit" className="w-full bg-primary text-background">Save Event</Button>
                         </form>
                     </CardContent>
                 </Card>
@@ -108,9 +108,9 @@ export function EventsManager() {
                     <Card key={event.id} className="bg-surface/30">
                         {event.imageUrl && <img src={event.imageUrl} alt={event.title} className="w-full h-32 object-cover rounded-t-xl" />}
                         <CardContent className="p-4">
-                            <h3 className="font-bold text-lg text-white mb-2">{event.title}</h3>
+                            <h3 className="font-bold text-lg text-text-primary mb-2">{event.title}</h3>
                             <p className="text-sm text-text-muted mb-4 line-clamp-2">{event.description}</p>
-                            <div className="flex justify-between items-center text-xs text-text-muted mb-4 font-mono bg-background p-2 rounded-lg border border-white/5">
+                            <div className="flex justify-between items-center text-xs text-text-muted mb-4 font-mono bg-background p-2 rounded-lg border border-border">
                                 <span>{event.date}</span>
                                 <span className="uppercase text-primary">{event.status}</span>
                             </div>
@@ -122,7 +122,7 @@ export function EventsManager() {
                 ))}
             </div>
             {events.length === 0 && !isAdding && (
-                <div className="text-center py-12 text-text-muted border border-dashed border-white/10 rounded-xl bg-surface/20">
+                <div className="text-center py-12 text-text-muted border border-dashed border-border rounded-xl bg-surface/20">
                     No events listed. Click Add Event to create one.
                 </div>
             )}

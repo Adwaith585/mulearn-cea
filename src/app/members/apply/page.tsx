@@ -76,12 +76,12 @@ export default function ApplyPage() {
                 <div className="w-20 h-20 bg-karma/20 text-karma rounded-full flex items-center justify-center mx-auto mb-8">
                     <User className="w-10 h-10" />
                 </div>
-                <h1 className="text-4xl font-heading font-bold text-white">Application Submitted!</h1>
+                <h1 className="text-4xl font-heading font-bold text-text-primary">Application Submitted!</h1>
                 <p className="text-xl text-text-muted">
                     Your profile has been submitted and is pending admin approval. You will appear on the members board once approved.
                 </p>
                 <div className="pt-8 flex gap-4 justify-center">
-                    <Button onClick={() => router.push('/members')} className="bg-primary hover:bg-primary/90 text-white px-8">
+                    <Button onClick={() => router.push('/members')} className="bg-primary hover:bg-primary/90 text-background px-8">
                         View Members
                     </Button>
                     <Button onClick={() => router.push('/members/profile')} variant="outline" className="px-8">
@@ -95,13 +95,13 @@ export default function ApplyPage() {
     return (
         <div className="container mx-auto px-4 py-24 max-w-4xl animate-in fade-in slide-in-from-bottom-8 duration-700">
             <section className="text-center mb-12 space-y-4">
-                <h1 className="text-4xl md:text-5xl font-heading font-bold text-white">Join the Ranks</h1>
+                <h1 className="text-4xl md:text-5xl font-heading font-bold text-text-primary">Join the Ranks</h1>
                 <p className="text-xl text-text-muted">Create your profile to be featured on the members board.</p>
             </section>
 
             <form onSubmit={handleSubmit} className="space-y-8">
-                <Card className="bg-surface/40 hover:border-white/10 transition-colors">
-                    <CardHeader className="border-b border-white/5 bg-white/5">
+                <Card className="bg-surface/40 hover:border-border transition-colors">
+                    <CardHeader className="border-b border-border bg-black/5 dark:bg-white/10">
                         <CardTitle className="text-xl">Basic Info</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-6 space-y-6">
@@ -114,7 +114,7 @@ export default function ApplyPage() {
                                         required
                                         type="text"
                                         placeholder="John Doe"
-                                        className="w-full bg-background border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-primary/50 transition-colors"
+                                        className="w-full bg-background border border-border rounded-xl py-3 pl-11 pr-4 text-text-primary focus:outline-none focus:border-primary/50 transition-colors"
                                         value={formData.name}
                                         onChange={e => setFormData({ ...formData, name: e.target.value })}
                                     />
@@ -123,7 +123,7 @@ export default function ApplyPage() {
                             <div className="space-y-4">
                                 <label className="text-sm font-bold text-text-muted uppercase tracking-wider block">Profile Image</label>
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full border border-white/10 overflow-hidden flex-shrink-0 bg-background flex items-center justify-center">
+                                    <div className="w-12 h-12 rounded-full border border-border overflow-hidden flex-shrink-0 bg-background flex items-center justify-center">
                                         {formData.imageUrl ? (
                                             <img src={formData.imageUrl} alt="Preview" className="w-full h-full object-cover" />
                                         ) : (
@@ -135,14 +135,14 @@ export default function ApplyPage() {
                                             type="file"
                                             accept="image/*"
                                             onChange={handleImageUpload}
-                                            className="w-full bg-background border border-white/10 rounded-xl py-2 px-3 text-sm text-text-muted file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary/20 file:text-primary hover:file:bg-primary/30 cursor-pointer"
+                                            className="w-full bg-background border border-border rounded-xl py-2 px-3 text-sm text-text-muted file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary/20 file:text-primary hover:file:bg-primary/30 cursor-pointer"
                                         />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 border-t border-white/5">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 border-t border-border">
                             <div className="space-y-4">
                                 <label className="text-sm font-bold text-text-muted uppercase tracking-wider block">GitHub URL</label>
                                 <div className="relative">
@@ -150,7 +150,7 @@ export default function ApplyPage() {
                                     <input
                                         type="url"
                                         placeholder="github.com/..."
-                                        className="w-full bg-background border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-primary/50 transition-colors"
+                                        className="w-full bg-background border border-border rounded-xl py-3 pl-11 pr-4 text-text-primary focus:outline-none focus:border-primary/50 transition-colors"
                                         value={formData.github}
                                         onChange={e => setFormData({ ...formData, github: e.target.value })}
                                     />
@@ -163,7 +163,7 @@ export default function ApplyPage() {
                                     <input
                                         type="url"
                                         placeholder="linkedin.com/in/..."
-                                        className="w-full bg-background border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-primary/50 transition-colors"
+                                        className="w-full bg-background border border-border rounded-xl py-3 pl-11 pr-4 text-text-primary focus:outline-none focus:border-primary/50 transition-colors"
                                         value={formData.linkedin}
                                         onChange={e => setFormData({ ...formData, linkedin: e.target.value })}
                                     />
@@ -176,7 +176,7 @@ export default function ApplyPage() {
                                     <input
                                         type="url"
                                         placeholder="instagram.com/..."
-                                        className="w-full bg-background border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-primary/50 transition-colors"
+                                        className="w-full bg-background border border-border rounded-xl py-3 pl-11 pr-4 text-text-primary focus:outline-none focus:border-primary/50 transition-colors"
                                         value={formData.instagram}
                                         onChange={e => setFormData({ ...formData, instagram: e.target.value })}
                                     />
@@ -184,14 +184,14 @@ export default function ApplyPage() {
                             </div>
                         </div>
 
-                        <div className="pt-4 border-t border-white/5 space-y-4">
+                        <div className="pt-4 border-t border-border space-y-4">
                             <label className="text-sm font-bold text-text-muted uppercase tracking-wider block">Claimed Karma Points (Optional)</label>
                             <div className="relative">
                                 <input
                                     type="number"
                                     min="0"
                                     placeholder="Enter your current karma points..."
-                                    className="w-full bg-background border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-karma/50 transition-colors font-mono"
+                                    className="w-full bg-background border border-border rounded-xl py-3 px-4 text-text-primary focus:outline-none focus:border-karma/50 transition-colors font-mono"
                                     value={formData.karma || ''}
                                     onChange={e => setFormData({ ...formData, karma: parseInt(e.target.value) || 0 })}
                                 />
@@ -203,7 +203,7 @@ export default function ApplyPage() {
                 </Card>
 
                 <Card className="bg-surface/40 hover:border-primary/30 transition-colors">
-                    <CardHeader className="border-b border-white/5 bg-white/5 flex flex-row items-center justify-between">
+                    <CardHeader className="border-b border-border bg-black/5 dark:bg-white/10 flex flex-row items-center justify-between">
                         <CardTitle className="text-xl">Interest Groups (Max 3)</CardTitle>
                         <div className="text-sm font-mono bg-primary/20 text-primary px-3 py-1 rounded-full">{formData.domains.length}/3 Selected</div>
                     </CardHeader>
@@ -219,10 +219,10 @@ export default function ApplyPage() {
                                         disabled={isDisabled}
                                         onClick={() => toggleDomain(group)}
                                         className={`px-4 py-2 text-sm font-bold rounded-full border transition-all ${isSelected
-                                            ? 'bg-primary border-primary text-white shadow-[0_0_15px_rgba(108,92,231,0.3)]'
+                                            ? 'bg-primary border-primary text-text-primary shadow-[0_0_15px_rgba(108,92,231,0.3)]'
                                             : isDisabled
-                                                ? 'bg-background/50 border-white/5 text-text-muted/30 cursor-not-allowed'
-                                                : 'bg-background border-white/10 text-text-muted hover:border-white/30 hover:text-white'
+                                                ? 'bg-background/50 border-border text-text-muted/30 cursor-not-allowed'
+                                                : 'bg-background border-border text-text-muted hover:border-border hover:text-text-primary'
                                             }`}
                                     >
                                         {group} {isSelected && <X className="inline-block ml-1 w-3 h-3" />}
@@ -238,7 +238,7 @@ export default function ApplyPage() {
                         type="submit"
                         size="lg"
                         disabled={isSubmitting || formData.domains.length === 0}
-                        className="bg-primary hover:bg-primary/90 text-white min-w-[200px]"
+                        className="bg-primary hover:bg-primary/90 text-background min-w-[200px]"
                     >
                         {isSubmitting ? "Submitting..." : "Submit Application"}
                     </Button>

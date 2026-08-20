@@ -12,14 +12,14 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-24">
             {/* Header */}
             <section className="text-center max-w-3xl mx-auto space-y-6">
-                <h1 className="text-4xl md:text-5xl font-heading font-bold text-white leading-tight">About the Chapter</h1>
+                <h1 className="text-4xl md:text-5xl font-heading font-bold text-text-primary leading-tight">About the Chapter</h1>
                 <p className="text-xl text-text-muted leading-relaxed">
                     The official µLearn chapter at College of Engineering Adoor (CEA). A community of builders, learners, and dreamers.
                 </p>
             </section>
 
             {/* Mission & Vision */}
-            <section className="bg-surface/30 rounded-3xl p-8 md:p-12 border border-white/5 relative overflow-hidden">
+            <section className="bg-surface/30 rounded-3xl p-8 md:p-12 border border-border relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-karma"></div>
                 <div className="max-w-4xl mx-auto space-y-6 text-center">
                     <h2 className="text-3xl font-heading font-bold">Mission & Vision</h2>
@@ -37,7 +37,7 @@ export default function AboutPage() {
                         Nestled in the heart of Kerala, CEA has always been a hub of engineering talent. By establishing the µLearn Chapter, we are connecting our campus to a 64,000+ strong network of tech enthusiasts statewide. We bring the industry closer to the classroom.
                     </p>
                 </div>
-                <div className="relative h-64 md:h-96 rounded-3xl overflow-hidden border border-white/10 shadow-xl group">
+                <div className="relative h-64 md:h-96 rounded-3xl overflow-hidden border border-border shadow-xl group">
                     <img
                         src="/college-bg.jpg"
                         alt="College of Engineering Adoor"
@@ -91,31 +91,31 @@ export default function AboutPage() {
                     <h2 className="text-3xl font-heading font-bold">Why You Should Join</h2>
                 </div>
                 <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                    <div className="flex flex-col md:flex-row gap-4 p-6 bg-surface/40 rounded-2xl border border-white/5">
+                    <div className="flex flex-col md:flex-row gap-4 p-6 bg-surface/40 rounded-2xl border border-border">
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-karma/10 text-karma flex items-center justify-center font-bold">1</div>
                         <div>
-                            <h3 className="text-lg font-bold mb-2 text-white">Visible Skill Record</h3>
+                            <h3 className="text-lg font-bold mb-2 text-text-primary">Visible Skill Record</h3>
                             <p className="text-sm text-text-muted leading-relaxed">Earn Karma Points by completing tasks. Your points serve as an immutable record of your effort from day one.</p>
                         </div>
                     </div>
-                    <div className="flex flex-col md:flex-row gap-4 p-6 bg-surface/40 rounded-2xl border border-white/5">
+                    <div className="flex flex-col md:flex-row gap-4 p-6 bg-surface/40 rounded-2xl border border-border">
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">2</div>
                         <div>
-                            <h3 className="text-lg font-bold mb-2 text-white">Proof-of-Work Portfolio</h3>
+                            <h3 className="text-lg font-bold mb-2 text-text-primary">Proof-of-Work Portfolio</h3>
                             <p className="text-sm text-text-muted leading-relaxed">Stop relying just on your degree. Build real things and push them to GitHub. Start building a portfolio employers care about.</p>
                         </div>
                     </div>
-                    <div className="flex flex-col md:flex-row gap-4 p-6 bg-surface/40 rounded-2xl border border-white/5">
+                    <div className="flex flex-col md:flex-row gap-4 p-6 bg-surface/40 rounded-2xl border border-border">
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">3</div>
                         <div>
-                            <h3 className="text-lg font-bold mb-2 text-white">Peer-led Growth</h3>
+                            <h3 className="text-lg font-bold mb-2 text-text-primary">Peer-led Growth</h3>
                             <p className="text-sm text-text-muted leading-relaxed">Learn alongside friends in Learning Circles. No intimidating professors, just students helping students.</p>
                         </div>
                     </div>
-                    <div className="flex flex-col md:flex-row gap-4 p-6 bg-surface/40 rounded-2xl border border-white/5">
+                    <div className="flex flex-col md:flex-row gap-4 p-6 bg-surface/40 rounded-2xl border border-border">
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-karma/10 text-karma flex items-center justify-center font-bold">4</div>
                         <div>
-                            <h3 className="text-lg font-bold mb-2 text-white">Internships & Opportunities</h3>
+                            <h3 className="text-lg font-bold mb-2 text-text-primary">Internships & Opportunities</h3>
                             <p className="text-sm text-text-muted leading-relaxed">Top Karma earners get exclusive access to internships, hackathons, and µLearn's Launchpad network.</p>
                         </div>
                     </div>

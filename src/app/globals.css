@@ -1,6 +1,26 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --font-heading: var(--font-montserrat);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-space-mono);
+}
+
+:root {
+  --color-background: #FFFFFF;
+  --color-surface: #F3F4F6;
+  --color-primary: #6C5CE7;
+  --color-karma: #F5B942;
+  --color-text-primary: #111827;
+  --color-text-muted: #4B5563;
+  --color-border: #E5E7EB;
+
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+.dark {
   --color-background: #0B0E14;
   --color-surface: #141822;
   --color-primary: #6C5CE7;
@@ -8,15 +28,6 @@
   --color-text-primary: #EDEEF2;
   --color-text-muted: #8B93A7;
   --color-border: #1F2937;
-  
-  --font-heading: var(--font-montserrat);
-  --font-body: var(--font-inter);
-  --font-mono: var(--font-space-mono);
-}
-
-:root {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
 }
 
 body {
@@ -25,10 +36,25 @@ body {
   font-family: var(--font-body);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
 }
 
 .font-mono {
   font-family: var(--font-mono);
+}
+
+/* Scrollbar utilities */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -59,14 +59,14 @@ export function DocsManager() {
 
     return (
         <div className="space-y-6">
-            <div className="flex justify-between items-center bg-surface/30 p-6 rounded-2xl border border-white/5">
+            <div className="flex justify-between items-center bg-surface/30 p-6 rounded-2xl border border-border">
                 <div>
-                    <h2 className="text-2xl font-bold font-heading text-white">Documentation Hub</h2>
+                    <h2 className="text-2xl font-bold font-heading text-text-primary">Documentation Hub</h2>
                     <p className="text-text-muted">Write activity logs and upload pictures of campus events.</p>
                 </div>
                 <Button
                     onClick={() => setIsAdding(!isAdding)}
-                    className="bg-primary hover:bg-primary/90 text-white"
+                    className="bg-primary hover:bg-primary/90 text-background"
                 >
                     {isAdding ? "Cancel" : <><Plus className="w-4 h-4 mr-2" /> New Document</>}
                 </Button>
@@ -86,7 +86,7 @@ export function DocsManager() {
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
                                     placeholder="e.g. Campus Hackathon Recap"
-                                    className="w-full bg-background border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-primary/50 transition-colors"
+                                    className="w-full bg-background border border-border rounded-xl py-3 px-4 text-text-primary focus:outline-none focus:border-primary/50 transition-colors"
                                     required
                                 />
                             </div>
@@ -99,7 +99,7 @@ export function DocsManager() {
                                         value={author}
                                         onChange={(e) => setAuthor(e.target.value)}
                                         placeholder="e.g. John Doe"
-                                        className="w-full bg-background border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-primary/50 transition-colors"
+                                        className="w-full bg-background border border-border rounded-xl py-3 px-4 text-text-primary focus:outline-none focus:border-primary/50 transition-colors"
                                         required
                                     />
                                 </div>
@@ -110,7 +110,7 @@ export function DocsManager() {
                                         value={imageUrl}
                                         onChange={(e) => setImageUrl(e.target.value)}
                                         placeholder="https://..."
-                                        className="w-full bg-background border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-primary/50 transition-colors"
+                                        className="w-full bg-background border border-border rounded-xl py-3 px-4 text-text-primary focus:outline-none focus:border-primary/50 transition-colors"
                                     />
                                 </div>
                             </div>
@@ -122,12 +122,12 @@ export function DocsManager() {
                                     onChange={(e) => setContent(e.target.value)}
                                     placeholder="Write your article or log here..."
                                     rows={6}
-                                    className="w-full bg-background border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-primary/50 transition-colors resize-y"
+                                    className="w-full bg-background border border-border rounded-xl py-3 px-4 text-text-primary focus:outline-none focus:border-primary/50 transition-colors resize-y"
                                     required
                                 />
                             </div>
 
-                            <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white mt-4">
+                            <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-background mt-4">
                                 {editingId ? "Save Changes" : "Publish Document"}
                             </Button>
                         </form>
@@ -137,9 +137,9 @@ export function DocsManager() {
 
             <div className="grid md:grid-cols-2 gap-6">
                 {docs.map(doc => (
-                    <Card key={doc.id} className="bg-surface/30 border-white/5 flex flex-col h-full overflow-hidden">
+                    <Card key={doc.id} className="bg-surface/30 border-border flex flex-col h-full overflow-hidden">
                         {doc.imageUrl && (
-                            <div className="w-full h-48 bg-background border-b border-white/5">
+                            <div className="w-full h-48 bg-background border-b border-border">
                                 <img src={doc.imageUrl} alt={doc.title} className="w-full h-full object-cover" />
                             </div>
                         )}
@@ -156,13 +156,13 @@ export function DocsManager() {
                                 <div className="flex gap-2">
                                     <button
                                         onClick={() => handleEdit(doc)}
-                                        className="p-2 rounded-lg bg-surface hover:bg-white/10 text-text-muted hover:text-white transition-colors border border-white/5"
+                                        className="p-2 rounded-lg bg-surface hover:bg-black/5 dark:hover:bg-white/10 text-text-muted hover:text-text-primary transition-colors border border-border"
                                     >
                                         <Edit className="w-4 h-4" />
                                     </button>
                                     <button
                                         onClick={() => deleteDoc(doc.id)}
-                                        className="p-2 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white transition-colors border border-red-500/20"
+                                        className="p-2 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-text-primary transition-colors border border-red-500/20"
                                     >
                                         <Trash2 className="w-4 h-4" />
                                     </button>
@@ -176,7 +176,7 @@ export function DocsManager() {
                 ))}
 
                 {docs.length === 0 && (
-                    <div className="col-span-full py-12 text-center text-text-muted border border-dashed border-white/10 rounded-2xl bg-surface/20">
+                    <div className="col-span-full py-12 text-center text-text-muted border border-dashed border-border rounded-2xl bg-surface/20">
                         <p>No documents found. Start writing your first log!</p>
                     </div>
                 )}

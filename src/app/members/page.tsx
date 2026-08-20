@@ -36,7 +36,7 @@ const mockMembers: MemberProps[] = [
         isCore: true, github: "https://github.com/ashwanth-a", linkedin: "https://www.linkedin.com/in/ashwanth-a13-/"
     },
     {
-        id: "6", name: "Adwaith P", role: "Media Management", domains: [],
+        id: "6", name: "Adwaith P", role: "Media Lead", domains: [],
         karma: 1677, imageUrl: "/leads/adwaithp.png",
         isCore: true, github: "https://github.com/AdwaithP-07", linkedin: "https://www.linkedin.com/in/adwaithp-cse/"
     }
@@ -100,16 +100,16 @@ export default function MembersPage() {
     return (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-16">
             <section className="text-center max-w-3xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                <h1 className="text-4xl md:text-5xl font-heading font-bold text-white leading-tight">Meet the Members.</h1>
+                <h1 className="text-4xl md:text-5xl font-heading font-bold text-text-primary leading-tight">Meet the Members.</h1>
                 <p className="text-xl text-text-muted leading-relaxed">
                     The minds driving the CEA µLearn chapter forward. Search by name, filter by domain, or check out the leaderboard.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4 pt-4">
                     <Link href="/members/apply">
-                        <Button className="bg-primary hover:bg-primary/90 text-white">Join the Ranks</Button>
+                        <Button className="bg-primary hover:bg-primary/90 text-background">Join the Ranks</Button>
                     </Link>
                     <Link href="/members/profile">
-                        <Button variant="outline" className="border-white/10 hover:bg-white/5">My Profile</Button>
+                        <Button variant="outline" className="border-border hover:bg-black/5 dark:hover:bg-white/10">My Profile</Button>
                     </Link>
                 </div>
             </section>
@@ -118,7 +118,7 @@ export default function MembersPage() {
             <section className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150 fill-mode-both">
                 <StatBlock label="Total Members" value={loading ? "..." : members.length} />
                 <StatBlock label="Core Team" value={loading ? "..." : members.filter(m => m.isCore).length} />
-                <StatBlock label="Collective Karma" value={loading ? "..." : totalKarma.toLocaleString()} highlight />
+                <StatBlock label="Collective Karma" value={loading ? "..." : totalKarma.toLocaleString()} highlight className="col-span-2 md:col-span-1" />
             </section>
 
             {/* Main Content Grid */}
@@ -127,7 +127,7 @@ export default function MembersPage() {
                 {/* Leaderboard Sidebar */}
                 <div className="lg:col-span-1 space-y-6">
                     <Card className="bg-surface/40 hover:border-karma/30 transition-colors sticky top-28">
-                        <CardHeader className="border-b border-white/5 pb-4 bg-karma/5 rounded-t-2xl">
+                        <CardHeader className="border-b border-border pb-4 bg-karma/5 rounded-t-2xl">
                             <CardTitle className="flex items-center gap-2 text-karma text-lg font-heading">
                                 <SkillChallengesSticker className="w-8 h-8 drop-shadow-md" /> Top Earners
                             </CardTitle>
@@ -136,7 +136,7 @@ export default function MembersPage() {
                             {loading ? (
                                 Array.from({ length: 5 }).map((_, i) => (
                                     <div key={i} className="flex gap-4 items-center animate-pulse">
-                                        <div className="w-10 h-10 rounded-full bg-background border border-white/10"></div>
+                                        <div className="w-10 h-10 rounded-full bg-background border border-border"></div>
                                         <div className="space-y-2">
                                             <div className="h-3 bg-surface rounded w-24"></div>
                                             <div className="h-2 bg-surface rounded w-16"></div>
@@ -147,7 +147,7 @@ export default function MembersPage() {
                                 topMembers.map((m, i) => (
                                     <div key={m.id} className="flex items-center gap-3">
                                         <span className={`font-mono text-xs w-4 font-bold ${i < 3 ? 'text-karma' : 'text-text-muted'}`}>{i + 1}.</span>
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 border-2 ${i < 3 ? 'border-karma/50 bg-karma/10' : 'border-white/10 bg-background'}`}>
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 border-2 ${i < 3 ? 'border-karma/50 bg-karma/10' : 'border-border bg-background'}`}>
                                             {m.imageUrl ? (
                                                 <img src={m.imageUrl} alt={m.name} className="w-full h-full object-cover" />
                                             ) : (
@@ -155,7 +155,7 @@ export default function MembersPage() {
                                             )}
                                         </div>
                                         <div className="flex-1 min-w-0">
-                                            <p className="text-sm font-bold truncate text-white">{m.name}</p>
+                                            <p className="text-sm font-bold truncate text-text-primary">{m.name}</p>
                                             <p className="text-xs text-karma font-mono mt-0.5">{m.karma.toLocaleString()} KP</p>
                                         </div>
                                     </div>
@@ -169,7 +169,7 @@ export default function MembersPage() {
                 <div className="lg:col-span-3 space-y-8">
 
                     {/* Controls */}
-                    <div className="flex flex-col md:flex-row gap-4 items-center justify-between p-4 rounded-2xl bg-surface/30 border border-white/5">
+                    <div className="flex flex-col md:flex-row gap-4 items-center justify-between p-4 rounded-2xl bg-surface/30 border border-border">
                         <div className="relative w-full md:w-80">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
                             <input
@@ -177,7 +177,7 @@ export default function MembersPage() {
                                 placeholder="Search by name..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full bg-background border border-white/10 rounded-xl py-2.5 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-primary/50 transition-colors placeholder:text-text-muted"
+                                className="w-full bg-background border border-border rounded-xl py-2.5 pl-10 pr-4 text-sm text-text-primary focus:outline-none focus:border-primary/50 transition-colors placeholder:text-text-muted"
                             />
                         </div>
                         <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 scrollbar-hide py-1">
@@ -187,8 +187,8 @@ export default function MembersPage() {
                                     key={domain}
                                     onClick={() => setActiveFilter(domain)}
                                     className={`flex-shrink-0 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider rounded-full border transition-all ${activeFilter === domain
-                                        ? "bg-primary border-primary text-white shadow-[0_0_15px_rgba(108,92,231,0.3)]"
-                                        : "bg-background border-white/10 text-text-muted hover:border-white/30 hover:text-white"
+                                        ? "bg-primary border-primary text-text-primary shadow-[0_0_15px_rgba(108,92,231,0.3)]"
+                                        : "bg-background border-border text-text-muted hover:border-border hover:text-text-primary"
                                         }`}
                                 >
                                     {domain}
@@ -201,7 +201,7 @@ export default function MembersPage() {
                     <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
                         {loading ? (
                             Array.from({ length: 6 }).map((_, i) => (
-                                <div key={i} className="h-[320px] rounded-2xl bg-surface/30 animate-pulse border border-white/5 flex flex-col items-center p-6">
+                                <div key={i} className="h-[320px] rounded-2xl bg-surface/30 animate-pulse border border-border flex flex-col items-center p-6">
                                     <div className="w-24 h-24 rounded-full bg-background mb-4"></div>
                                     <div className="h-4 w-32 bg-background rounded mb-2"></div>
                                     <div className="h-3 w-20 bg-background rounded mb-4"></div>
@@ -216,9 +216,9 @@ export default function MembersPage() {
                                 </div>
                             ))
                         ) : (
-                            <div className="col-span-full py-20 text-center text-text-muted border border-dashed border-white/10 rounded-2xl bg-surface/20 flex flex-col items-center justify-center">
+                            <div className="col-span-full py-20 text-center text-text-muted border border-dashed border-border rounded-2xl bg-surface/20 flex flex-col items-center justify-center">
                                 <Users className="w-12 h-12 mb-4 opacity-20" />
-                                <p className="text-lg font-medium text-white mb-1">No members found</p>
+                                <p className="text-lg font-medium text-text-primary mb-1">No members found</p>
                                 <p className="text-sm">Try adjusting your filters or search term.</p>
                             </div>
                         )}
