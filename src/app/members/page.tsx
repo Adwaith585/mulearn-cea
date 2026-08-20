@@ -53,7 +53,7 @@ export default function MembersPage() {
     });
 
     const totalKarma = members.reduce((acc, curr) => acc + curr.karma, 0);
-    const topMembers = [...members].sort((a, b) => b.karma - a.karma).slice(0, 5);
+    const topMembers = [...members].sort((a, b) => b.karma - a.karma).slice(0, 10);
 
     return (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-16">
@@ -92,7 +92,7 @@ export default function MembersPage() {
                         </CardHeader>
                         <CardContent className="pt-6 space-y-5">
                             {loading ? (
-                                Array.from({ length: 5 }).map((_, i) => (
+                                Array.from({ length: 10 }).map((_, i) => (
                                     <div key={i} className="flex gap-4 items-center animate-pulse">
                                         <div className="w-10 h-10 rounded-full bg-background border border-border"></div>
                                         <div className="space-y-2">
