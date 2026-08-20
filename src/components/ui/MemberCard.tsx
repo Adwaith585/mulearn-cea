@@ -84,20 +84,20 @@ export function MemberCard({ member, className, onClick }: { member: MemberProps
             </div>
 
             {/* Hover Socials Overlay */}
-            <div className="absolute inset-0 bg-background/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
+            <div className="absolute inset-0 bg-white/80 dark:bg-black/80 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-5 z-10">
                 {member.github && (
-                    <a href={member.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-text-primary transition-colors p-2" onClick={(e) => e.stopPropagation()}>
-                        <Github size={24} />
+                    <a href={member.github} target="_blank" rel="noreferrer" className="text-text-primary hover:text-black dark:hover:text-white transition-colors p-3 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 rounded-full" onClick={(e) => e.stopPropagation()}>
+                        <Github size={28} />
                     </a>
                 )}
                 {member.linkedin && (
-                    <a href={member.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-[#0077b5] transition-colors p-2" onClick={(e) => e.stopPropagation()}>
-                        <Linkedin size={24} />
+                    <a href={member.linkedin} target="_blank" rel="noreferrer" className="text-text-primary hover:text-[#0077b5] transition-colors p-3 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 rounded-full" onClick={(e) => e.stopPropagation()}>
+                        <Linkedin size={28} />
                     </a>
                 )}
                 {member.instagram && (
-                    <a href={member.instagram} target="_blank" rel="noreferrer" className="text-text-muted hover:text-[#E1306C] transition-colors p-2" onClick={(e) => e.stopPropagation()}>
-                        <Instagram size={24} />
+                    <a href={member.instagram} target="_blank" rel="noreferrer" className="text-text-primary hover:text-[#E1306C] transition-colors p-3 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 rounded-full" onClick={(e) => e.stopPropagation()}>
+                        <Instagram size={28} />
                     </a>
                 )}
             </div>
