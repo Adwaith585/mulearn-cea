@@ -37,14 +37,12 @@ export function Navbar() {
         )}>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between">
-                    <Link href="/" className="flex flex-col items-start group">
-                        <div className="flex items-center text-3xl font-bold font-sans tracking-tight leading-none group-hover:scale-105 transition-transform origin-left">
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-[#9b59b6] to-purple-400 mr-[1px]">µ</span>
-                            <span className="text-text-primary">learn</span>
-                        </div>
-                        <span className="text-[0.65rem] font-bold text-primary tracking-[0.45em] uppercase mt-1 ml-[1.6rem] opacity-90 group-hover:text-purple-400 transition-colors">
-                            CEA
-                        </span>
+                    <Link href="/" className="flex items-center group hover:scale-105 transition-transform origin-left">
+                        <img
+                            src="/mulearn-logo.jpg"
+                            alt="µlearn CEA Logo"
+                            className="h-10 md:h-12 w-auto object-contain rounded-lg drop-shadow-md"
+                        />
                     </Link>
 
                     {/* Desktop Nav */}
